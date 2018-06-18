@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="831.0" prefWidth="1447.0" style="-fx-background-color: #000020;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLFutebolController">
+   <children>
+      <ImageView fitHeight="831.0" fitWidth="1446.0" pickOnBounds="true" AnchorPane.bottomAnchor="-114.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-535.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../imagens/7bfa2ec6e177cedf73b0c61707697a46.png" />
+         </image>
+      </ImageView>
+      <BorderPane prefHeight="778.0" prefWidth="911.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <GridPane prefHeight="149.0" prefWidth="911.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="160.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="578.0" minWidth="10.0" prefWidth="569.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="160.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000d1a00" height="404.0" stroke="#030217" strokeType="INSIDE" strokeWidth="7.0" width="714.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin></Rectangle>
+                  <MediaView fx:id="mvFutebol" fitHeight="390.0" fitWidth="700.0" preserveRatio="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="17.0" />
+                     </GridPane.margin></MediaView>
+               </children>
+            </GridPane>
+         </bottom>
+         <top>
+            <GridPane prefHeight="419.0" prefWidth="1447.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="233.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="190.0" prefWidth="449.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="233.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="179.0" minHeight="10.0" prefHeight="123.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="263.0" minHeight="10.0" prefHeight="263.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="lPontosEsquerda" alignment="CENTER" contentDisplay="CENTER" prefHeight="146.0" prefWidth="133.0" text="00" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="100.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lTimeDireita" prefHeight="93.0" prefWidth="500.0" text="Time B" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT">
+                     <padding>
+                        <Insets left="6.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lTimeEsquerda" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="497.0" layoutY="54.0" prefHeight="93.0" prefWidth="496.0" text="Time A" textAlignment="RIGHT" textFill="WHITE" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="6.0" />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Label>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Faltas:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="ivTimeEsquerda" fitHeight="111.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../imagens/Brazil.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ivTimeDireita" fitHeight="111.0" fitWidth="144.0" layoutX="163.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="40.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../imagens/flagge-argentinien.gif" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lCronometro" alignment="CENTER" contentDisplay="CENTER" text="00:00" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="90.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="80.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <image>
+                        <Image url="@../imagens/200px-Red_card.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets right="80.0" top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="80.0" fitWidth="76.0" layoutX="10.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <image>
+                        <Image url="@../imagens/200px-Yellow_card.svg.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets right="230.0" top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="80.0" fitWidth="76.0" layoutX="100.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <image>
+                        <Image url="@../imagens/200px-Yellow_card.svg.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="230.0" top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="80.0" fitWidth="76.0" layoutX="100.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <image>
+                        <Image url="@../imagens/200px-Red_card.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="80.0" top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <Label fx:id="lAmareloEsquerda" text="00" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="150.0" top="13.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lVermelhoEsquerda" layoutX="215.0" layoutY="258.0" text="00" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="13.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lVermelhoDireita" layoutX="135.0" layoutY="271.0" text="00" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="13.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lAmareloDireita" layoutX="135.0" layoutY="364.0" text="00" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="150.0" top="13.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lPontosDireita" alignment="CENTER" contentDisplay="CENTER" layoutX="241.0" layoutY="104.0" prefHeight="146.0" prefWidth="133.0" text="00" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="100.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="X" wrappingWidth="85.185546875" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="130.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Label fx:id="lFaltasEsquerda" text="00" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="66.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="125.0" top="60.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lFaltasDireita" text="00" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="66.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="125.0" top="60.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="X" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets top="70.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
