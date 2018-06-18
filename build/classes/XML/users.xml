@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<listaUsuario>
+    <user>
+        <usuario>admin</usuario>
+        <senha>admin</senha>
+        <userADM>true</userADM>
+        <userPlacar>false</userPlacar>
+        <userPropaganda>false</userPropaganda>
+    </user>
+    <user>
+        <usuario>carlos</usuario>
+        <senha>qwe</senha>
+        <userADM>true</userADM>
+        <userPlacar>false</userPlacar>
+        <userPropaganda>false</userPropaganda>
+    </user>
+    <user>
+        <usuario>placar</usuario>
+        <senha>123</senha>
+        <userADM>false</userADM>
+        <userPlacar>true</userPlacar>
+        <userPropaganda>false</userPropaganda>
+    </user>
+    <user>
+        <usuario>propaganda</usuario>
+        <senha>123</senha>
+        <userADM>false</userADM>
+        <userPlacar>false</userPlacar>
+        <userPropaganda>true</userPropaganda>
+    </user>
+</listaUsuario>
