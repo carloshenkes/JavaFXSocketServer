@@ -1,5 +1,6 @@
 package mainS;
 // servidor
+
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -9,18 +10,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import comunicacao.ServidorSocket;
+import javafx.event.EventHandler;
+import javafx.stage.WindowEvent;
 
-public class Main extends Application {
+public class MainS extends Application {
 
     public static Stage primaryStage;
     public static Scene sceneBasquete, scenePrincipal;
     public static Class thisClass;
 
-
     /**
      * A classe principal da aplicação em JavaFX
      */
-    public Main() {
+    public MainS() {
         thisClass = getClass();
     }
 
@@ -30,7 +32,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         setStage(primaryStage);
-        
+
         new Thread(new ServidorSocket(primaryStage)).start();
 
         // loadScene("/view/FXMLPrincipal.fxml");
@@ -55,10 +57,11 @@ public class Main extends Application {
                 primaryStage.show();
                 primaryStage.setFullScreen(true);
             });
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
     }
 
 }

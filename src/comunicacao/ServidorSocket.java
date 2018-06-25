@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package comunicacao;
 
 import java.io.File;
@@ -18,23 +13,21 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import mainS.Main;
+import mainS.MainS;
 import model.ListaUsuario;
 import model.Usuario;
 
 /**
  *
- * @author danie
+ * @author Carlos Eduardo Henkes
  */
 public class ServidorSocket implements Runnable {
     
     Stage p;
-
-    // váriaveis controle cronometro
+    
     public boolean fimCrono = false;
     private boolean cronoPausado = false;
 
-    //variaveis controle de jogo
     public int pontosD = 0;
     public int pontosE = 0;
     private int faltasD = 0;
@@ -43,6 +36,7 @@ public class ServidorSocket implements Runnable {
     private int vermelhoE = 0;
     private int amareloD = 0;
     private int amareloE = 0;
+    
     public ServidorSocket(Stage p) {
         this.p = p;
     }
@@ -54,15 +48,10 @@ public class ServidorSocket implements Runnable {
     @Override
     public void run() {
         try {
-            // Instancia o ServerSocket ouvindo a porta 12345
+            
             ServerSocket servidor = new ServerSocket(9696);
             System.out.println("Servidor ouvindo a porta 9696");
-            // o método accept() bloqueia a execução até que
-            // o servidor receba um pedido de conexão
             Socket cliente = servidor.accept();
-
-//            ProgressIndicator pro = (ProgressIndicator) p.getScene().getRoot().lookup("#progressIndicator");
-            //     pro.setOpacity(0);
             System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
             
             ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
@@ -77,15 +66,15 @@ public class ServidorSocket implements Runnable {
                     saida.writeUTF(login(escolha));
                     saida.flush();
                 } else if (escolha[0].equals("!ABRE_FUTEBOL")) {
-                    Main.loadScene("/tela/FXMLFutebol.fxml");
+                    MainS.loadScene("/tela/FXMLFutebol.fxml");
                     saida.writeUTF("FutebolCarregado");
                     saida.flush();
                 } else if (escolha[0].equals("!ABRE_BASQUETE")) {
-                    Main.loadScene("/tela/FXMLBasquetebol.fxml");
+                    MainS.loadScene("/tela/FXMLBasquetebol.fxml");
                     saida.writeUTF("BasqueteCarregado");
                     saida.flush();
                 } else if (escolha[0].equals("!ABRE_VOLEIBOL")) {
-                    Main.loadScene("/tela/FXMLVoleibol.fxml");
+                    MainS.loadScene("/tela/FXMLVoleibol.fxml");
                     saida.writeUTF("VoleibolCarregado");
                     saida.flush();
                 } else if (escolha[0].equals("!NOME_TIMES")) {
@@ -101,7 +90,12 @@ public class ServidorSocket implements Runnable {
                     aTime(escolha);
                     saida.writeUTF("!BLZ");
                     saida.flush();
-                } else if (escolha[0].equals("!TESTE")) {
+                }else if (escolha[0].equals("!CRONO")) {
+                    cronometro(escolha);
+                    saida.writeUTF("!BLZ");
+                    saida.flush();
+                }
+                else if (escolha[0].equals("!TESTE")) {
                     System.out.println("CONECTED");
                     saida.writeUTF("!BLZ");
                     saida.flush();
@@ -158,28 +152,28 @@ public class ServidorSocket implements Runnable {
         String opc = msg[1];
         
         if (opc.equals("DIREITA")) {
-            mudaPontoD((Label) p.getScene().getRoot().lookup("#lPontosDireita"), msg[2], msg[3]);
+            mudaPontoD((Label) p.getScene().getRoot().lookup("#lPontosD"), msg[2], msg[3]);
             return "!BLZ";
         } else if (opc.equals("ESQUERDA")) {
-            mudaPontoE((Label) p.getScene().getRoot().lookup("#lPontosEsquerda"), msg[2], msg[3]);
+            mudaPontoE((Label) p.getScene().getRoot().lookup("#lPontosE"), msg[2], msg[3]);
             return "!BLZ";
         } else if(opc.equals("FALTA")){
             if(msg[2].equals("DIREITA")){
-                mudaFaltaD((Label) p.getScene().getRoot().lookup("#lFaltasDireita"), msg[3]);
+                mudaFaltaD((Label) p.getScene().getRoot().lookup("#lFaltasD"), msg[3]);
             }else if(msg[2].equals("ESQUERDA")){
-                mudaFaltaE((Label) p.getScene().getRoot().lookup("#lFaltasEsquerda"), msg[3]);
+                mudaFaltaE((Label) p.getScene().getRoot().lookup("#lFaltasE"), msg[3]);
             }
         } else if(opc.equals("AMARELO")){
             if(msg[2].equals("DIREITA")){
-                mudaAmareloD((Label) p.getScene().getRoot().lookup("#lAmareloDireita"), msg[3]);
+                mudaAmareloD((Label) p.getScene().getRoot().lookup("#lAmareloD"), msg[3]);
             }else if(msg[2].equals("ESQUERDA")){
-                mudaAmareloE((Label) p.getScene().getRoot().lookup("#lAmareloEsquerda"), msg[3]);
+                mudaAmareloE((Label) p.getScene().getRoot().lookup("#lAmareloE"), msg[3]);
             }
         } else if (opc.equals("VERMELHO")){
             if(msg[2].equals("DIREITA")){
-                mudaVermelhoD((Label) p.getScene().getRoot().lookup("#lVermelhoDireita"), msg[3]);
+                mudaVermelhoD((Label) p.getScene().getRoot().lookup("#lVermelhoD"), msg[3]);
             }else if(msg[2].equals("ESQUERDA")){
-                mudaVermelhoE((Label) p.getScene().getRoot().lookup("#lVermelhoEsquerda"), msg[3]);
+                mudaVermelhoE((Label) p.getScene().getRoot().lookup("#lVermelhoE"), msg[3]);
             }
         }
         
@@ -195,7 +189,7 @@ public class ServidorSocket implements Runnable {
             } else {
                 pontosD = pontosD + 3;
             }
-        } else {
+        } else if(val.equals("MENOS")) {
             if (val.equals("UM")) {
                 pontosD--;
             } else if (val.equals("DOIS")) {
@@ -357,6 +351,14 @@ public class ServidorSocket implements Runnable {
         }
     }
     
+    public void cronometro(String[] msg){
+        if(msg[2].equals("PAUSA")){
+            cronoPausado = false;
+        }else{
+            cronoPausado = true;
+        }
+    }
+    
     public ListaUsuario lerXML() {
         ListaUsuario lista = null;
         try {
@@ -381,8 +383,6 @@ public class ServidorSocket implements Runnable {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             
             jaxbMarshaller.marshal(l, file);
-            // Se desejar mostrar no console o xml gerado
-//            jaxbMarshaller.marshal(usuarios, System.out);
 
         } catch (JAXBException e) {
             e.printStackTrace();
