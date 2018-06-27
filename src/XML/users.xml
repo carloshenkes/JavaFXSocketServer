@@ -5,8 +5,8 @@
         <usuario>admin</usuario>
         <senha>admin</senha>
         <userADM>true</userADM>
-        <userPlacar>false</userPlacar>
-        <userPropaganda>false</userPropaganda>
+        <userPlacar>true</userPlacar>
+        <userPropaganda>true</userPropaganda>
     </user>
     <user>
         <usuario>carlos</usuario>
@@ -16,7 +16,7 @@
         <userPropaganda>false</userPropaganda>
     </user>
     <user>
-        <usuario>placar</usuario>
+        <usuario>juiz</usuario>
         <senha>123</senha>
         <userADM>false</userADM>
         <userPlacar>true</userPlacar>

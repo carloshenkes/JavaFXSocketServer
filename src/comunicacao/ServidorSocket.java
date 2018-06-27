@@ -36,7 +36,7 @@ public class ServidorSocket implements Runnable {
     private int vermelhoE = 0;
     private int amareloD = 0;
     private int amareloE = 0;
-    
+    private int periodo = 0;   
     public ServidorSocket(Stage p) {
         this.p = p;
     }
@@ -97,6 +97,17 @@ public class ServidorSocket implements Runnable {
                 }
                 else if (escolha[0].equals("!TESTE")) {
                     System.out.println("CONECTED");
+                    saida.writeUTF("!BLZ");
+                    saida.flush();
+                }
+                else if (escolha[0].equals("!PERIODO")) {
+                    System.out.println("VOLTOU");
+                    periodo((Label) p.getScene().getRoot().lookup("#l"),msg[1]);
+                    saida.writeUTF("!BLZ");
+                    saida.flush();
+                }
+                else if (escolha[0].equals("!INICIO")) {
+                    System.out.println("VOLTOU");
                     saida.writeUTF("!BLZ");
                     saida.flush();
                 }
@@ -356,6 +367,21 @@ public class ServidorSocket implements Runnable {
             cronoPausado = false;
         }else{
             cronoPausado = true;
+        }
+    }
+    
+    public void periodo(Label l,String op){
+        if (op.equals("SOMA")) {
+            periodo++;
+            Platform.runLater(() -> {
+                l.setText("" + periodo);
+            });
+        }
+        else if(op.equals("MENOS")){
+            periodo--;
+            Platform.runLater(() -> {
+                l.setText("" + periodo);
+            });
         }
     }
     
