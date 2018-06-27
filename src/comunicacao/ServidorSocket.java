@@ -36,7 +36,8 @@ public class ServidorSocket implements Runnable {
     private int vermelhoE = 0;
     private int amareloD = 0;
     private int amareloE = 0;
-    private int periodo = 0;   
+    private int periodo = 1;   
+    private int acrescimo = 0;
     public ServidorSocket(Stage p) {
         this.p = p;
     }
@@ -101,8 +102,12 @@ public class ServidorSocket implements Runnable {
                     saida.flush();
                 }
                 else if (escolha[0].equals("!PERIODO")) {
-                    System.out.println("VOLTOU");
-                    periodo((Label) p.getScene().getRoot().lookup("#l"),msg[1]);
+                    periodo((Label)p.getScene().getRoot().lookup("#lPeriodo"),escolha[1]);
+                    saida.writeUTF("!BLZ");
+                    saida.flush();
+                }
+                else if (escolha[0].equals("!ACRESCIMO")) {
+                    acressimo((Label)p.getScene().getRoot().lookup("#lAcrescimo"),escolha[1]);
                     saida.writeUTF("!BLZ");
                     saida.flush();
                 }
@@ -374,13 +379,37 @@ public class ServidorSocket implements Runnable {
         if (op.equals("SOMA")) {
             periodo++;
             Platform.runLater(() -> {
-                l.setText("" + periodo);
+                l.setText(periodo +"º" );
             });
         }
         else if(op.equals("MENOS")){
             periodo--;
             Platform.runLater(() -> {
-                l.setText("" + periodo);
+                l.setText(periodo +"º" );
+            });
+        }
+    }
+    
+        public void acressimo(Label l,String op){
+        if (op.equals("SOMA")) {
+            acrescimo++;
+            Platform.runLater(() -> {
+                l.setText("" + acrescimo);
+            });
+        }
+        else if(op.equals("MENOS")){
+            acrescimo--;
+            Platform.runLater(() -> {
+                l.setText("" + acrescimo);
+            });
+        }
+        if (acrescimo > 9) {
+            Platform.runLater(() -> {
+                l.setText("" + acrescimo);
+            });
+        } else {
+            Platform.runLater(() -> {
+                l.setText("0" + acrescimo);
             });
         }
     }
