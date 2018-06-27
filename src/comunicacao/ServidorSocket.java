@@ -189,12 +189,12 @@ public class ServidorSocket implements Runnable {
             } else {
                 pontosD = pontosD + 3;
             }
-        } else if(val.equals("MENOS")) {
+        } else if(op.equals("MENOS")) {
             if (val.equals("UM")) {
                 pontosD--;
             } else if (val.equals("DOIS")) {
                 pontosD = pontosD - 2;
-            } else {
+            } else if (val.equals("TRES")) {
                 pontosD = pontosD - 3;
             }
         }
@@ -217,15 +217,15 @@ public class ServidorSocket implements Runnable {
                 pontosE++;
             } else if (val.equals("DOIS")) {
                 pontosE = pontosE + 2;
-            } else {
+            } else if (val.equals("TRES")) {
                 pontosE = pontosE + 3;
             }
-        } else {
+        } else if (op.equals("MENOS")) {
             if (val.equals("UM")) {
                 pontosE--;
             } else if (val.equals("DOIS")) {
                 pontosE = pontosE - 2;
-            } else {
+            } else if (val.equals("TRES")) {
                 pontosE = pontosE - 3;
             }
         }
@@ -244,7 +244,7 @@ public class ServidorSocket implements Runnable {
     private void mudaFaltaD(Label l, String op) {
             if (op.equals("SOMA")) {
                 faltasD++;                
-            } else {
+            } else if (op.equals("MENOS")) {
                 faltasD--;
             }
             
@@ -263,7 +263,7 @@ public class ServidorSocket implements Runnable {
     private void mudaFaltaE(Label l, String op) {
         if (op.equals("SOMA")) {
             faltasE++;            
-        } else {
+        } else if (op.equals("MENOS")) {
             faltasE--;
         }
         
