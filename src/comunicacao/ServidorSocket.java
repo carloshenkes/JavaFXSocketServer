@@ -66,15 +66,15 @@ public class ServidorSocket implements Runnable {
                     saida.writeUTF(login(escolha));
                     saida.flush();
                 } else if (escolha[0].equals("!ABRE_FUTEBOL")) {
-                    MainS.loadScene("/tela/FXMLFutebol.fxml");
+                    MainS.loadScene("/telasS/FXMLFutebol.fxml");
                     saida.writeUTF("FutebolCarregado");
                     saida.flush();
                 } else if (escolha[0].equals("!ABRE_BASQUETE")) {
-                    MainS.loadScene("/tela/FXMLBasquetebol.fxml");
+                    MainS.loadScene("/telasS/FXMLBasquetebol.fxml");
                     saida.writeUTF("BasqueteCarregado");
                     saida.flush();
                 } else if (escolha[0].equals("!ABRE_VOLEIBOL")) {
-                    MainS.loadScene("/tela/FXMLVoleibol.fxml");
+                    MainS.loadScene("/telasS/FXMLVoleibol.fxml");
                     saida.writeUTF("VoleibolCarregado");
                     saida.flush();
                 } else if (escolha[0].equals("!NOME_TIMES")) {

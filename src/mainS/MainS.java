@@ -34,8 +34,6 @@ public class MainS extends Application {
         setStage(primaryStage);
 
         new Thread(new ServidorSocket(primaryStage)).start();
-
-        // loadScene("/view/FXMLPrincipal.fxml");
     }
 
     public static void main(String[] args) {

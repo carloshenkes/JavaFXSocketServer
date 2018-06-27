@@ -1,7 +1,7 @@
+
 package controller;
 
 import java.io.File;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -21,7 +21,7 @@ import javafx.scene.media.MediaView;
  * @author Elison
  */
 public class FXMLVoleibolController implements Initializable {
-    
+
     @FXML
     private AnchorPane apVolei;
     @FXML
@@ -35,9 +35,9 @@ public class FXMLVoleibolController implements Initializable {
     @FXML
     private Label lTimeDireita;
     @FXML
-    private Label lPontosEsquerda;
+    private Label lPlacarEsquerda;
     @FXML
-    private Label lPontosDireita;
+    private Label lPlacarDireita;
     @FXML
     private Label lSetsEsquerda;
     @FXML
@@ -58,18 +58,18 @@ public class FXMLVoleibolController implements Initializable {
     private ImageView ivTimeEsquerda;
     @FXML
     private ImageView ivTimeDireita;
-    
-    
+
     private static File file = new File("src/videos/Propaganda.mp4");
     private static final String mediaurl = file.toURI().toString();
     private MediaPlayer mediaplayer;
     private Media media;
-    
+
+
     public boolean stopc = true;
     private int segundo = 0;
     private int minuto = 0;
     private int hora = 0;
-    
+
     public void iniciaCronometro() {
         Task t = new Task() {
 
@@ -84,7 +84,7 @@ public class FXMLVoleibolController implements Initializable {
                     }
 
                     if (minuto == 60) {
-                        hora ++;
+                        hora++;
                         minuto = 0;
                     }
                     String min = minuto <= 9 ? "0" + minuto : minuto + "";
@@ -104,16 +104,17 @@ public class FXMLVoleibolController implements Initializable {
         new Thread(t).start();
 
     }
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        
         media = new Media(mediaurl);
         mediaplayer = new MediaPlayer(media);
         mvDireitaVolei.setMediaPlayer(mediaplayer);
         mvEsquerdaVolei.setMediaPlayer(mediaplayer);
         mediaplayer.play();
         iniciaCronometro();
-    }    
-    
+    }
+
 }
